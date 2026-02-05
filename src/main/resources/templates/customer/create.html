@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragment/template1}">
+<body>
+<div layout:fragment="content">
+<div class="card">
+<h5 class='card-header'>Créer Customers</h5>
+<div class="card-body">
+<form th:action='@{/customer/save}' th:object='${customer}' method='post'>
+  <div class='mb-4'>
+    <label class='form-label' for='first_name'>First name</label>
+    <input type='text' class='form-control' id='first_name' th:field='*{first_name}' placeholder='first_name...'>
+  </div>
+  <div class='mb-4'>
+    <label class='form-label' for='last_name'>Last name</label>
+    <input type='text' class='form-control' id='last_name' th:field='*{last_name}' placeholder='last_name...'>
+  </div>
+  <div class='mb-4'>
+    <label class='form-label' for='email'>Email</label>
+    <input type='text' class='form-control' id='email' th:field='*{email}' placeholder='email...'>
+  </div>
+  <div class='mb-4'>
+    <label class='form-label' for='phone_number'>Phone number</label>
+    <input type='text' class='form-control' id='phone_number' th:field='*{phone_number}' placeholder='phone_number...'>
+  </div>
+  <div class='mb-4'>
+    <label class='form-label' for='created_at'>Created at</label>
+    <input type='datetime-local' class='form-control' id='created_at' th:field='*{created_at}' placeholder='created_at...'>
+  </div>
+  <div class='mt-3'>
+    <button type='submit' class='btn btn-primary'>Enregistrer</button>
+  </div>
+</form>
+</div>
+</div>
+</div>
+</body>
+</html>

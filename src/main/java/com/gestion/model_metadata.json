@@ -1,0 +1,93 @@
+{
+  "customer": {
+    "table_name": "customer",
+    "class_name": "Customer",
+    "attributes": [
+      {
+        "sql_name": "id",
+        "camel_name": "id",
+        "pascal_name": "Id",
+        "java_type": "Integer",
+        "sql_type": "integer",
+        "is_id": true,
+        "is_foreign_key": false,
+        "is_nullable": false,
+        "default_value": "nextval('customer_id_seq'::regclass)",
+        "char_length": null,
+        "num_precision": 32,
+        "num_scale": 0
+      },
+      {
+        "sql_name": "first_name",
+        "camel_name": "firstName",
+        "pascal_name": "FirstName",
+        "java_type": "String",
+        "sql_type": "character varying",
+        "is_id": false,
+        "is_foreign_key": false,
+        "is_nullable": false,
+        "default_value": null,
+        "char_length": 50,
+        "num_precision": null,
+        "num_scale": null
+      },
+      {
+        "sql_name": "last_name",
+        "camel_name": "lastName",
+        "pascal_name": "LastName",
+        "java_type": "String",
+        "sql_type": "character varying",
+        "is_id": false,
+        "is_foreign_key": false,
+        "is_nullable": false,
+        "default_value": null,
+        "char_length": 50,
+        "num_precision": null,
+        "num_scale": null
+      },
+      {
+        "sql_name": "email",
+        "camel_name": "email",
+        "pascal_name": "Email",
+        "java_type": "String",
+        "sql_type": "character varying",
+        "is_id": false,
+        "is_foreign_key": false,
+        "is_nullable": false,
+        "default_value": null,
+        "char_length": 100,
+        "num_precision": null,
+        "num_scale": null
+      },
+      {
+        "sql_name": "phone_number",
+        "camel_name": "phoneNumber",
+        "pascal_name": "PhoneNumber",
+        "java_type": "String",
+        "sql_type": "character varying",
+        "is_id": false,
+        "is_foreign_key": false,
+        "is_nullable": true,
+        "default_value": null,
+        "char_length": 15,
+        "num_precision": null,
+        "num_scale": null
+      },
+      {
+        "sql_name": "created_at",
+        "camel_name": "createdAt",
+        "pascal_name": "CreatedAt",
+        "java_type": "LocalTime",
+        "sql_type": "timestamp without time zone",
+        "is_id": false,
+        "is_foreign_key": false,
+        "is_nullable": true,
+        "default_value": "CURRENT_TIMESTAMP",
+        "char_length": null,
+        "num_precision": null,
+        "num_scale": null
+      }
+    ],
+    "fk_info": {}
+  }
+}

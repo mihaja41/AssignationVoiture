@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body>
+<div layout:fragment="navigation">
+  <!-- Menu de navigation -->
+  <ul class="menu-inner py-1">
+    <li class="menu-item active open">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-home-smile"></i>
+        <div class="text-truncate" data-i18n="Dashboards">gestion vente</div>
+        <span class="badge rounded-pill bg-danger ms-auto">5</span>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="/customer" class="menu-link">
+            <div class="text-truncate" data-i18n="Analytics">Liste des customer</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+</body>
+</html>

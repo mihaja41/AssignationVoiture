@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragment/template1}">
+<body>
+<div layout:fragment="content">
+<h2>Edit customer</h2>
+<form th:action='@{/customer/update}' th:object='${customer}' method='post'>
+id: <input type='text' th:field='*{id}'/><br/>
+first_name: <input type='text' th:field='*{first_name}'/><br/>
+last_name: <input type='text' th:field='*{last_name}'/><br/>
+email: <input type='text' th:field='*{email}'/><br/>
+phone_number: <input type='text' th:field='*{phone_number}'/><br/>
+created_at: <input type='text' th:field='*{created_at}'/><br/>
+<button type='submit'>Mettre à jour</button></form></div> </body></html>
