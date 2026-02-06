@@ -1,7 +1,7 @@
 package com.gestion.assignationvoiture.model;
 
 import jakarta.persistence.*;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "customer", uniqueConstraints = {
@@ -27,7 +27,7 @@ public class Customer {
     private String phoneNumber;
 
     @Column(name = "created_at")
-    private LocalTime createdAt;
+    private LocalDateTime createdAt;
 
     public Integer getId() {
         return id;
@@ -69,11 +69,11 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public LocalTime getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalTime createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
