@@ -4,11 +4,21 @@ import java.time.LocalDateTime;
 
 public class ReservationDto {
 
+    @JsonProperty("id_reservation")
     private Long id;
+
+    @JsonProperty("hotel_name")
     private String hotelName;
+
+    @JsonProperty("customer_id")
     private Integer customerId;
+
+    @JsonProperty("passenger_nbr")
     private Integer passengerNbr;
+
+    @JsonProperty("arrival_date")
     private LocalDateTime arrivalDate;
+    
 
     public Long getId() {
         return id;
