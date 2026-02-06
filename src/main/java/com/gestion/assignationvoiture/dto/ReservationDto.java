@@ -2,6 +2,8 @@ package com.gestion.assignationvoiture.dto;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class ReservationDto {
 
     @JsonProperty("id_reservation")
