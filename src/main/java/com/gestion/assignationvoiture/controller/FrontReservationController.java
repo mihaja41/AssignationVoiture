@@ -36,7 +36,7 @@ public class FrontReservationController {
                     )
                     .toList(); // Java 16+
         }
-    
+        System.out.println("Filtered Reservations: " + data.size());
         model.addAttribute("reservations", data);
         model.addAttribute("filterDate", filterDate == null ? "" : filterDate);
     

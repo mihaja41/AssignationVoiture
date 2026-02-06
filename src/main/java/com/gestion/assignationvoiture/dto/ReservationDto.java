@@ -1,55 +1,42 @@
 package com.gestion.assignationvoiture.dto;
 
 import java.time.LocalDateTime;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ReservationDto {
 
-    @JsonProperty("id_reservation")
+    @JsonProperty("id")
     private Long id;
 
-    @JsonProperty("hotel_name")
+    @JsonProperty("hotelName")
     private String hotelName;
 
-    @JsonProperty("customer_id")
-    private Integer customerId;
+    @JsonProperty("customerId")
+    private String customerId; // ⚠ String car JSON = "12"
 
-    @JsonProperty("passenger_nbr")
+    @JsonProperty("passengerNbr")
     private Integer passengerNbr;
 
-    @JsonProperty("arrival_date")
+    @JsonProperty("arrivalDate")
     private LocalDateTime arrivalDate;
-    
 
     public Long getId() {
         return id;
-    }   
-    public void setId(Long id) {
-        this.id = id;
     }
+
     public String getHotelName() {
-        return hotelName;   
+        return hotelName;
     }
-    public void setHotelName(String hotelName) {
-        this.hotelName = hotelName;
-    }
-    public Integer getCustomerId() {
+
+    public String getCustomerId() {
         return customerId;
     }
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
-    }
+
     public Integer getPassengerNbr() {
         return passengerNbr;
     }
-    public void setPassengerNbr(Integer passengerNbr) {
-        this.passengerNbr = passengerNbr;
-    }
+
     public LocalDateTime getArrivalDate() {
         return arrivalDate;
     }
-    public void setArrivalDate(LocalDateTime arrivalDate) {
-        this.arrivalDate = arrivalDate;
-    }   
 }

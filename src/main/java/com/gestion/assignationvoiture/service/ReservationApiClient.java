@@ -27,7 +27,7 @@ public class ReservationApiClient {
                 null,
                 new ParameterizedTypeReference<ApiResponse<List<ReservationDto>>>() {}
             );
-
+        System.err.println("API Response Status: " +  response.getBody().getData() );
         return response.getBody().getData(); // 🔥 IMPORTANT
     }
 }
