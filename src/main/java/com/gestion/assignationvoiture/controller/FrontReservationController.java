@@ -17,21 +17,28 @@ public class FrontReservationController {
     private ReservationApiClient apiClient;
 
     @GetMapping("/listReservation")
-    public String list(@RequestParam(required = false) String filterDate, Model model) {
-
-       List<ReservationDto> data =
-            apiClient.getReservations();
-
-        // Filtrer par date si un filtre est fourni
+    public String list(
+            @RequestParam(required = false) String filterDate,
+            Model model
+    ) {
+    
+        List<ReservationDto> data = apiClient.getReservations();
+    
         if (filterDate != null && !filterDate.isEmpty()) {
-            data = Arrays.stream(data)
-                .filter(r -> r.getArrivalDate().startsWith(filterDate))
-                .toArray(ReservationDto[]::new);
+    
+            LocalDate date = LocalDate.parse(filterDate);
+    
+            data = data.stream()
+                    .filter(r ->
+                        r.getArrivalDate() != null &&
+                        r.getArrivalDate().toLocalDate().equals(date)
+                    )
+                    .toList(); // Java 16+
         }
-
+    
         model.addAttribute("reservations", data);
-        model.addAttribute("filterDate", filterDate != null ? filterDate : "");
-
+        model.addAttribute("filterDate", filterDate == null ? "" : filterDate);
+    
         return "reservation/reservation-list";
     }
 }
