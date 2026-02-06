@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.gestion.assignationvoiture.dto.ReservationDto;
 import com.gestion.assignationvoiture.service.ReservationApiClient;
-
+import java.util.List;
 
 @Controller
 public class FrontReservationController {
@@ -16,7 +16,7 @@ public class FrontReservationController {
     @GetMapping("/listReservation")
     public String list(Model model) {
 
-        ReservationDto[] data =
+       List<ReservationDto> data =
             apiClient.getReservations();
 
         model.addAttribute("reservations", data);
