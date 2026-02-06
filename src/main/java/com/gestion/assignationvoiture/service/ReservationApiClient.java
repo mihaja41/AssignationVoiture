@@ -7,27 +7,28 @@ import org.springframework.web.client.RestTemplate;
 import com.gestion.assignationvoiture.dto.ReservationDto;
 import java.util.List;
 import org.springframework.core.ParameterizedTypeReference;
+import com.gestion.assignationvoiture.dto.ApiResponse;
+
 @Service
 public class ReservationApiClient {
 
     @Autowired
     private RestTemplate restTemplate;
 
-    
-    private String API_URL =
-        "http://localhost:9001/project1/reservations";
+    private final String API_URL =
+        "https://assignationvoitureback-production.up.railway.app/api/reservations";
 
     public List<ReservationDto> getReservations() {
 
-        ResponseEntity<List<ReservationDto>> response =
+        ResponseEntity<ApiResponse<List<ReservationDto>>> response =
             restTemplate.exchange(
                 API_URL,
                 HttpMethod.GET,
                 null,
-                new ParameterizedTypeReference<List<ReservationDto>>() {}
+                new ParameterizedTypeReference<ApiResponse<List<ReservationDto>>>() {}
             );
-        return response.getBody();
-    }
 
+        return response.getBody().getData(); // 🔥 IMPORTANT
+    }
 }
 
