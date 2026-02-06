@@ -13,11 +13,17 @@ public class ReservationApiClient {
     private String API_URL =
         "http://localhost:8080/api/reservations";
 
-    public ReservationDto[] getReservations() {
-        return restTemplate.getForObject(
-            API_URL,
-            ReservationDto[].class
-        );
+    public List<ReservationDto> getReservations() {
+
+        ResponseEntity<List<ReservationDto>> response =
+            restTemplate.exchange(
+                API_URL,
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<List<ReservationDto>>() {}
+            );
+        return response.getBody();
     }
+
 }
 
