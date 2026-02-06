@@ -1,0 +1,75 @@
+TL : ETU003283
+DEV1 : ETU 003240
+DEV2 : ETU 003255
+
+  BACK-OFFICE – TODO LIST
+  ÉTAPE 1 : Création du modèle (Model / Entity)
+  Objectif
+
+Représenter les tables en objets.
+
+ À faire
+Créer un Hotel
+Créer une Reservation
+ 
+ ÉTAPE 2 : Repository (couche persistence)
+ Objectif
+
+    Gérer l’accès à la base de données (CRUD).
+
+- HotelRepository
+
+    findAll() → pour la liste déroulante
+
+    findById(id)
+
+ - ReservationRepository
+
+    save(reservation)
+
+    findAll()
+
+    findByDate(date)
+ 
+
+
+ ÉTAPE 3 : Service (logique métier)
+ Objectif
+
+Centraliser les règles métier.
+
+-  ReservationService
+    Vérifier que l’hôtel existe
+    Vérifier passenger_nbr > 0
+    Préparer l’objet Reservation
+    Appeler le repository
+
+Exemples de règles :
+Un hôtel doit exister avant la réservation
+Le nombre de passagers doit être positif
+La date d’arrivée est obligatoire
+
+ ÉTAPE 4 : Création du formulaire d’insertion (Back-office)
+ Objectif
+    Permettre l’ajout de réservation (non protégée)
+
+- Champs du formulaire
+    Hotel (select)
+    Customer ID (input)
+    Nombre de passagers (input number)
+    Date d’arrivée (input datetime)
+ 
+ ÉTAPE 5 : Traitement du formulaire
+ Flow logique
+
+L’utilisateur soumet le formulaire
+Le contrôleur récupère les données
+Appel du ReservationService
+Validation métier
+Insertion via ReservationRepository
+Message succès ou erreur
+
+
+Front-office :
+
+Liste des hôtels (via HotelService → HotelRepository)
