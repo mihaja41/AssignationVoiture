@@ -18,6 +18,22 @@ CREATE TABLE reservation (
         FOREIGN KEY (hotel_id) REFERENCES hotel(id)
 );
 
+
+
+CREATE TABLE hotel (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE reservation (
+    id SERIAL PRIMARY KEY,
+    hotel_id INT NOT NULL,
+    customer_id INT NOT NULL,
+    passenger_nbr INT NOT NULL CHECK (passenger_nbr > 0),
+    arrival_date TIMESTAMP NOT NULL,
+    created_at TIMESTAMP DEFAULT now(),
+
+ 
 INSERT INTO hotel (name) VALUES
 ('Hotel Colbert, Antananarivo'),
 ('Carlton Madagascar, Antananarivo'),
