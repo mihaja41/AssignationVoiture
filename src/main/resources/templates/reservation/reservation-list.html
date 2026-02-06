@@ -1,3 +1,9 @@
+<form method="get" action="/listReservation" style="margin-bottom: 20px;">
+    <input type="date" name="filterDate" th:value="${filterDate}" placeholder="Filtrer par date">
+    <button type="submit">Rechercher</button>
+    <a href="/listReservation">Reinitialiser</a>
+</form>
+
 <table>
     <tr>
         <th>ID</th>
@@ -12,6 +18,6 @@
         <td th:text="${r.hotelName}"></td>
         <td th:text="${r.customerId}"></td>
         <td th:text="${r.passengerNbr}"></td>
-        <td th:text="${r.arrivalDate}"></td>
+        <td th:text="${#strings.substring(r.arrivalDate, 0, 10)}"></td>
     </tr>
 </table>
