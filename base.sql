@@ -6,6 +6,8 @@ CREATE TABLE hotel (
     name VARCHAR(50) NOT NULL
 );
 
+
+drop table if exists reservation;
 CREATE TABLE reservation (
     id SERIAL PRIMARY KEY,
     hotel_id INT NOT NULL,

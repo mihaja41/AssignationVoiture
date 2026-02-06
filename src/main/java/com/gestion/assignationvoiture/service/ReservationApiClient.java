@@ -15,7 +15,7 @@ public class ReservationApiClient {
 
     
     private String API_URL =
-        "http://localhost:8080/api/reservations";
+        "http://localhost:9001/project1/reservations";
 
     public List<ReservationDto> getReservations() {
 
