@@ -77,10 +77,9 @@ Liste des hôtels (via HotelService → HotelRepository)
 
 JSON A recevoir 
 {
-  "id_reservation": 12,
-  "hotel_name": "Hotel Colbert – Antananarivo",
-  "customer_id": 1001,
-  "passenger_nbr": 3,
-  "arrival_date": "2026-03-15T14:30:00",
-  "created_at": "2026-02-06T09:45:00"
+  "id": 12,
+  "hotelName": "Hotel Colbert – Antananarivo",
+  "customerId": 1001,
+  "passengerNbr": 3,
+  "arrivalDate": "2026-03-15T14:30:00"
 }
