@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.gestion.assignationvoiture.dto.ReservationDto;
 import com.gestion.assignationvoiture.service.ReservationApiClient;
-import java.util.Arrays;
 
+
+import java.util.List;
 
 @Controller
 public class FrontReservationController {
@@ -18,7 +19,7 @@ public class FrontReservationController {
     @GetMapping("/listReservation")
     public String list(@RequestParam(required = false) String filterDate, Model model) {
 
-        ReservationDto[] data =
+       List<ReservationDto> data =
             apiClient.getReservations();
 
         // Filtrer par date si un filtre est fourni
