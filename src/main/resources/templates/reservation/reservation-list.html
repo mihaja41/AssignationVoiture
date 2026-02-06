@@ -1,0 +1,17 @@
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Hotel</th>
+        <th>Customer</th>
+        <th>Passengers</th>
+        <th>Arrival</th>
+    </tr>
+
+    <tr th:each="r : ${reservations}">
+        <td th:text="${r.id}"></td>
+        <td th:text="${r.hotelName}"></td>
+        <td th:text="${r.customerId}"></td>
+        <td th:text="${r.passengerNbr}"></td>
+        <td th:text="${r.arrivalDate}"></td>
+    </tr>
+</table>
