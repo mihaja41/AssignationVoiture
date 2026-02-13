@@ -1,3 +1,9 @@
+
+
+    Assignation reservation @ vehicule 
+
+
+
 TL : ETU003283
 DEV1 : ETU 003240
 DEV2 : ETU 003255
@@ -83,3 +89,22 @@ JSON A recevoir
   "passengerNbr": 3,
   "arrivalDate": "2026-03-15T14:30:00"
 }
+
+
+- Sprint 2 : 
+    CRUD VEHICULE + TOKEN 
+
+- Sprint 3 :
+    script reinitialisation ; 
+    script initialisation ;
+    donne am date x : 
+
+    Rajout parametre : 
+      - vitesse moyenne : 30km/h
+      - temps attente   : 30km 
+    Modif hotel : 
+      + Lieux/hotel( id , code , libelle ) -> ex  
+    Rajout table 
+      - Distance ( id , from , to , distance_km ) -> sens unique 
+    Interface : date -> planification ( vehicule , reservation + lieux , departAiroport , arriveAiroport ) 
+    rg : reserveation am date 1  , valo izahay dia tomobile mahazaka 8 farany faha keliny , raha mitovy dia ny type anah essence 'é
