@@ -1,0 +1,75 @@
+TL : ETU003255
+DEV1 : ETU 003240
+DEV2 : ETU 003283
+
+==============================
+PERSONNE 1 : ETU003240
+==============================
+
+1) Creation de l'entite Vehicule
+
+- Creer la classe Vehicule avec :
+    id
+    reference
+    nbPlace
+    typeCarburant (Enum : D, Es, H, El)
+
+- Creer l'enum TypeCarburant :
+    D
+    Es
+    H
+    El
+
+
+2) CRUD Vehicule
+
+- Create Vehicule
+- Read (liste des vehicules)
+- Update Vehicule
+- Delete Vehicule
+
+A faire :
+    - Repository
+    - Service
+    - Controller
+
+==============================
+PERSONNE 2 : ETU003283
+==============================
+
+1) Creation de l'entite Token
+
+- id
+- token (genere a partir de uid - a rechercher comment faire)
+- dateExpiration (DateTime)
+
+Important :
+=> Pas d'interface
+=> Initialisation dans la classe Main
+
+
+2) Protection de l'API Liste Reservation
+
+Lors de l'appel de l'API :
+
+Verifier :
+    - Le token existe ?
+    - Le token est expire ?
+
+
+3) Modification Appel API
+
+- Le token doit etre envoye dans la request
+- Normalement dans le header
+- Mais ici : on le met dans la request
+
+
+==============================
+MODIFICATION FRONT OFFICE
+==============================
+
+- Ajouter le token
+- Stocker le token dans un fichier de configuration
+- Mettre le token dans l'URL lors de l'appel API
+
+

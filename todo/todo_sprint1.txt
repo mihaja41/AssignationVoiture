@@ -36,7 +36,7 @@ Créer une Reservation
  ÉTAPE 3 : Service (logique métier)
  Objectif
 
-Centraliser les règles métier.
+Centraliser les règles métier.  
 
 -  ReservationService
     Vérifier que l’hôtel existe
@@ -83,3 +83,4 @@ JSON A recevoir
   "passengerNbr": 3,
   "arrivalDate": "2026-03-15T14:30:00"
 }
+
