@@ -1,3 +1,5 @@
+\c postgres;
+drop table if exists reservation;
 create database hotel_reservation;
 \c hotel_reservation;
 
@@ -6,8 +8,6 @@ CREATE TABLE hotel (
     name VARCHAR(50) NOT NULL
 );
 
-
-drop table if exists reservation;
 CREATE TABLE reservation (
     id SERIAL PRIMARY KEY,
     hotel_id INT NOT NULL,
@@ -15,13 +15,9 @@ CREATE TABLE reservation (
     passenger_nbr INT NOT NULL CHECK (passenger_nbr > 0),
     arrival_date TIMESTAMP NOT NULL,
     created_at TIMESTAMP DEFAULT now(),
-
     CONSTRAINT fk_reservation_hotel
         FOREIGN KEY (hotel_id) REFERENCES hotel(id)
 );
-
-
- 
  
 INSERT INTO hotel (name) VALUES
 ('Hotel Colbert, Antananarivo'),
