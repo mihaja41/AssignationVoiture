@@ -33,6 +33,9 @@ A faire :
     - Service
     - Controller
 
+
+
+
 ==============================
 PERSONNE 2 : ETU003283
 ==============================
@@ -71,5 +74,4 @@ MODIFICATION FRONT OFFICE
 - Ajouter le token
 - Stocker le token dans un fichier de configuration
 - Mettre le token dans l'URL lors de l'appel API
-
-
+ 
