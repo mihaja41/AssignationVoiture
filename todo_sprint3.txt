@@ -1,0 +1,180 @@
+== SPRINT 3 - TODO ==
+TL : ETU003240
+DEV1 : ETU003255
+DEV2 : ETU003283
+
+
+==============================
+PERSONNE 1 : ETU003255 - BACKEND
+==============================
+
+1) Creation des entites Lieu et Distance
+
+- Creer la classe Lieu avec :
+    id
+    code
+    libelle
+    Exemple: 1 Colbert ivato-airport
+
+- Creer la classe Distance avec :
+    id
+    from (airport)
+    to (colbert)
+    kmH
+    Supposition: distance identique aller/retour
+
+A faire :
+    - Créer classes Lieu et Distance
+    - Mapper JPA
+
+
+2) CRUD Lieu et Distance
+
+- Create Lieu / Distance
+- Read (liste des lieux / distances)
+- Update Lieu / Distance
+- Delete Lieu / Distance
+
+A faire :
+    - Repository Lieu + Distance
+    - Service Lieu + Distance
+    - Controller Lieu + Distance
+
+
+3) LOGIQUE D'ATTRIBUTION VÉHICULE - Service
+
+Algorithme attribution:
+- Chercher véhicule avec nb_places >= reservation.nb_personnes
+- Vérifier DISPONIBILITÉ:
+    heure_retour_vehicule <= heure_depart_nouvelle_reservation
+  (sinon = double assignation / conflit planning)
+
+- Trier par :
+    1. Capacité la plus proche
+    2. Carburant DIESEL prioritaire
+    3. Si plusieurs -> random
+    4. Sinon -> NON ASSIGNÉ
+
+A faire :
+    - Service VehiculeAttribution
+    - Logique tri + sélection
+    - Gestion cas limite
+
+
+4) Endpoint API - Attribution Véhicule
+
+- GET /api/planification?date={date}
+- Paramètre: date (input)
+- Retourner JSON:
+    {
+      "vehicule": {id, reference, nbPlace, typeCarburant},
+      "reservation": {id, nbPersonnes, client},
+      "lieu_destination": {id, code, libelle},
+      "heure_depart": "...",
+      "heure_arrivee": "...",
+      "heure_retour": "...",
+      "statut": "ASSIGNÉ/NON_ASSIGNÉ"
+    }
+
+A faire :
+    - Servlet REST /api/planification (GET)
+    - DTO PlanificationDTO (Java object → JSON)
+    - Service: logique tri + sélection + disponibilité
+
+
+5) Endpoint API - Réservations Non Assignées
+
+- GET /api/reservations/non-assignees?date={date}
+- Paramètre: date (optionnel)
+- Retourner JSON: Liste de réservations sans véhicule
+
+A faire :
+    - Servlet REST /api/reservations/non-assignees (GET)
+    - Query BD locale (Lieu, Distance tables)
+    - CORS header
+
+
+6) Script SQL Réinitialisation
+
+- Créer/mettre à jour script reinit.sql
+- Réinitialiser tables:
+    - PARAM
+    - Lieu
+    - Distance
+    - Véhicule
+    - Réservation
+- Données de test
+
+
+
+  ARCHITECTURE REQUISE
+
+1) DTOs explicites (Backend)
+   - Créer LieuDTO, DistanceDTO, PlanificationDTO
+   - Format JSON standardisé pour API REST
+   - À faire: dossier dto/ dans AssignationVoitureBack/Project1
+
+2) Endpoints API REST (Backend)
+   - /api/lieux (GET/POST/PUT/DELETE)
+   - /api/distances (GET/POST/PUT/DELETE)
+   - /api/planification?date={date} (GET)
+   - /api/reservations/non-assignees?date={date} (GET)
+   - À faire: Annoter avec @RestController
+
+
+
+
+==============================
+PERSONNE 2 : ETU003283 - FRONTEND
+==============================
+
+1) Page Planification - Vue
+
+- Créer page HTML planification.html dans templates/
+- Formulaire input date
+- Afficher tableau de planification avec colonnes:
+    - Véhicule (référence, type carburant, nb places)
+    - Réservation (nb personnes, lieu, client)
+    - Heure départ / arrivée / retour
+    - Lieu destination
+    - Statut assignation
+
+
+2) Page Réservations Non Assignées - Vue
+
+- Créer page HTML reservations-non-assignees.html dans templates/
+- Formulaire filtre date (optionnel)
+- Afficher tableau avec:
+    - Réservation (nb personnes, client, date)
+    - Lieu destination
+    - Véhicules disponibles (suggestion)
+
+
+
+
+
+
+==============================
+RÈGLES IMPORTANTES - À RESPECTER
+==============================
+- DOUBLE ASSIGNATION / CONFLIT PLANNING
+
+Un véhicule NE PEUT PAS être assigné si:
+  heure_retour_reservation_existante > heure_depart_nouvelle_reservation
+
+Vérifier cette condition AVANT assignation!
+
+-  CARBURANT DIESEL PRIORITAIRE
+
+Si 2 véhicules même capacité -> choisir DIESEL en priorité
+
+
+
+
+
+3) DTOs JSON Format
+   - LieuDTO, DistanceDTO, PlanificationDTO pour sérialisation
+   - À faire: com.gestion.assignationvoiture.dto
+
+- Paramètres: vitesse moyenne, temps attente
+- Données test dans reinit.sql (BD locale)
